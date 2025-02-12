@@ -21,4 +21,9 @@ public class GitHubController {
   public Mono<String> getUser(@PathVariable String username) {
     return gitHubService.getUser(username);
   }
+
+  @GetMapping("/userInfo/{username}")
+  public Mono<String> getUserInfo(@PathVariable String username) {
+    return gitHubService.getUserInfo(username);
+  }
 }
