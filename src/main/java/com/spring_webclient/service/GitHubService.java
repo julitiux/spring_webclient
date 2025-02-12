@@ -9,9 +9,13 @@ public class GitHubService {
 
   private final WebClient webClient;
 
-  public GitHubService(WebClient.Builder webClient) {
-    this.webClient = webClient.baseUrl("https://api.github.com").build();
+  public GitHubService(WebClient webClient) {
+    this.webClient = webClient;
   }
+
+//  public GitHubService(WebClient.Builder webClient) {
+//    this.webClient = webClient.baseUrl("https://api.github.com").build();
+//  }
 
   public Mono<String> getUser(String username){
     return webClient.get()
