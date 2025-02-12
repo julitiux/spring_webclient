@@ -23,4 +23,12 @@ public class GitHubService {
       .retrieve()
       .bodyToMono(String.class);
   }
+
+  public Mono<String> getUserInfo(String username){
+    return webClient
+      .get()
+      .uri("/users/{username}", username)
+      .retrieve()
+      .bodyToMono(String.class);
+  }
 }
