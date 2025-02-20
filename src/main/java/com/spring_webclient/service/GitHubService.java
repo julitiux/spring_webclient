@@ -41,6 +41,9 @@ public class GitHubService {
       .uri("/users/{username}", username)
       .accept(MediaType.APPLICATION_JSON)
       .retrieve()
+      .onStatus(HttpStatusCode::is4xxClientError,
+        response -> Mono.error(new RuntimeException("ERROR DEL CLIENTE"))
+      )
       .toEntity(String.class)
       .block();
 
