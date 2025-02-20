@@ -1,6 +1,7 @@
 package com.spring_webclient.controller;
 
 import com.spring_webclient.service.GitHubService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,4 +27,10 @@ public class GitHubController {
   public Mono<String> getUserInfo(@PathVariable String username) {
     return gitHubService.getUserInfo(username);
   }
+
+  @GetMapping("/userInfoBlock/{username}")
+  public ResponseEntity<String> test(@PathVariable String username) {
+    return gitHubService.getStringWithResponseEntity(username);
+  }
+
 }
