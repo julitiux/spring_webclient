@@ -1,5 +1,6 @@
 package com.spring_webclient.service;
 
+import com.spring_webclient.dto.Post;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
