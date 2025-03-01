@@ -12,4 +12,12 @@ public class JsonPlaceHolderService {
     this.webClient = webClient.baseUrl("https://jsonplaceholder.typicode.com").build();
   }
 
+  Mono<String> createPost(Post newPost){
+    return webClient
+      .post()
+      .uri("/posts")
+      .bodyValue(newPost)
+      .retrieve()
+      .bodyToMono(String.class);
+  }
 }
